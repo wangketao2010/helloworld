@@ -3,6 +3,10 @@ package com.ktwang.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
 
 @SpringBootApplication
 @Controller
@@ -13,8 +17,9 @@ public class DemoApplication {
 		System.out.println("=================启动成功=====================");
 	}
 
-	@Reque
+	@RequestMapping("/")
+	@ResponseBody
 	public String index(){
-		return "hello world";
+		return "hello world  " + new Date();
 	}
 }
