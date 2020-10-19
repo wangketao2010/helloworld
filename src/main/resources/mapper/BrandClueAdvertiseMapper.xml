@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.jenkins.helper.mapper.BrandClueAdvertiseMapper">
+  <resultMap id="BaseResultMap" type="com.yc.jenkins.helper.entity.po.BrandClueAdvertise">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="report_dt" jdbcType="VARCHAR" property="reportDt" />
+    <result column="member_brand_id" jdbcType="VARCHAR" property="memberBrandId" />
+    <result column="member_brand_name" jdbcType="VARCHAR" property="memberBrandName" />
+    <result column="clue_num_B" jdbcType="INTEGER" property="clueNumB" />
+    <result column="clue_num_A" jdbcType="INTEGER" property="clueNumA" />
+    <result column="deal_num_B" jdbcType="INTEGER" property="dealNumB" />
+    <result column="deal_num_A" jdbcType="INTEGER" property="dealNumA" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, report_dt, member_brand_id, member_brand_name, clue_num_B, clue_num_A, deal_num_B, 
+    deal_num_A
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from brand_clue_advertise
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from brand_clue_advertise
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yc.jenkins.helper.entity.po.BrandClueAdvertise">
+    insert into brand_clue_advertise (id, report_dt, member_brand_id, 
+      member_brand_name, clue_num_B, clue_num_A, 
+      deal_num_B, deal_num_A)
+    values (#{id,jdbcType=BIGINT}, #{reportDt,jdbcType=VARCHAR}, #{memberBrandId,jdbcType=VARCHAR}, 
+      #{memberBrandName,jdbcType=VARCHAR}, #{clueNumB,jdbcType=INTEGER}, #{clueNumA,jdbcType=INTEGER}, 
+      #{dealNumB,jdbcType=INTEGER}, #{dealNumA,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yc.jenkins.helper.entity.po.BrandClueAdvertise">
+    insert into brand_clue_advertise
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="reportDt != null">
+        report_dt,
+      </if>
+      <if test="memberBrandId != null">
+        member_brand_id,
+      </if>
+      <if test="memberBrandName != null">
+        member_brand_name,
+      </if>
+      <if test="clueNumB != null">
+        clue_num_B,
+      </if>
+      <if test="clueNumA != null">
+        clue_num_A,
+      </if>
+      <if test="dealNumB != null">
+        deal_num_B,
+      </if>
+      <if test="dealNumA != null">
+        deal_num_A,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="reportDt != null">
+        #{reportDt,jdbcType=VARCHAR},
+      </if>
+      <if test="memberBrandId != null">
+        #{memberBrandId,jdbcType=VARCHAR},
+      </if>
+      <if test="memberBrandName != null">
+        #{memberBrandName,jdbcType=VARCHAR},
+      </if>
+      <if test="clueNumB != null">
+        #{clueNumB,jdbcType=INTEGER},
+      </if>
+      <if test="clueNumA != null">
+        #{clueNumA,jdbcType=INTEGER},
+      </if>
+      <if test="dealNumB != null">
+        #{dealNumB,jdbcType=INTEGER},
+      </if>
+      <if test="dealNumA != null">
+        #{dealNumA,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yc.jenkins.helper.entity.po.BrandClueAdvertise">
+    update brand_clue_advertise
+    <set>
+      <if test="reportDt != null">
+        report_dt = #{reportDt,jdbcType=VARCHAR},
+      </if>
+      <if test="memberBrandId != null">
+        member_brand_id = #{memberBrandId,jdbcType=VARCHAR},
+      </if>
+      <if test="memberBrandName != null">
+        member_brand_name = #{memberBrandName,jdbcType=VARCHAR},
+      </if>
+      <if test="clueNumB != null">
+        clue_num_B = #{clueNumB,jdbcType=INTEGER},
+      </if>
+      <if test="clueNumA != null">
+        clue_num_A = #{clueNumA,jdbcType=INTEGER},
+      </if>
+      <if test="dealNumB != null">
+        deal_num_B = #{dealNumB,jdbcType=INTEGER},
+      </if>
+      <if test="dealNumA != null">
+        deal_num_A = #{dealNumA,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yc.jenkins.helper.entity.po.BrandClueAdvertise">
+    update brand_clue_advertise
+    set report_dt = #{reportDt,jdbcType=VARCHAR},
+      member_brand_id = #{memberBrandId,jdbcType=VARCHAR},
+      member_brand_name = #{memberBrandName,jdbcType=VARCHAR},
+      clue_num_B = #{clueNumB,jdbcType=INTEGER},
+      clue_num_A = #{clueNumA,jdbcType=INTEGER},
+      deal_num_B = #{dealNumB,jdbcType=INTEGER},
+      deal_num_A = #{dealNumA,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
